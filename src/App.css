@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 50px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.part {
+  border: 1px solid black;
+  margin: 5px;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.part-disabled {
+  border: 1px solid #888;
+  color: #888;
+  margin: 5px;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
