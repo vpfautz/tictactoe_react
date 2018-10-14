@@ -8,12 +8,13 @@ class Field extends Component {
       let row = [];
       for(let x = 0; x < 3; x++){
         row.push(<Part
+          key={"part"+x}
           enabled={this.props.enabled}
           symbol={this.props.symbols[y][x]}
           onClick={e => this.props.onClick(x,y)}
         />);
       }
-      f.push(<div className="row">{row}</div>);
+      f.push(<div className="row" key={"row"+y}>{row}</div>);
     }
 
     return (

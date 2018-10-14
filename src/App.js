@@ -1,7 +1,6 @@
 import Field from './field';
 import React, { Component } from 'react';
 import './App.css';
-import uuid4 from "uuid/v4";
 import openSocket from 'socket.io-client';
 
 
@@ -26,7 +25,7 @@ class App extends Component {
   onWinner(uuid) {
     if(uuid === "draw") {
       console.log("draw")
-    } else if (uuid == this.state.uuid) {
+    } else if (uuid === this.state.uuid) {
       console.log("I won :)");
     } else {
       console.log("I lost :(");
@@ -48,17 +47,17 @@ class App extends Component {
     });
   }
   onSetField(uuid, x, y) {
-    this.setField(x, y, uuid != this.state.uuid ? "O" : "X");
+    this.setField(x, y, uuid !== this.state.uuid ? "O" : "X");
   }
   onTurn(uuid) {
     this.setState({
-      enabled: uuid == this.state.uuid
+      enabled: uuid === this.state.uuid
     });
   }
 
   setField(x,y,symbol) {
     let neu = this.state.symbols.map((row,y_) =>
-      row.map((e, x_) => (y == y_ && x == x_) ? symbol : e)
+      row.map((e, x_) => (y === y_ && x === x_) ? symbol : e)
     );
     this.setState({
       symbols: neu
@@ -66,6 +65,7 @@ class App extends Component {
   }
 
   onClick(x,y) {
+    console.log("click",x,y)
     if(!this.state.enabled) return;
     this.setState({ enabled: false });
     this.socket.emit("click", { x, y, gameid: this.state.gameid });
